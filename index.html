@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHDOTI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Botão de menu mobile -->
+    <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Overlay para menu mobile -->
+    <div class="overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-rocket"></i> DASHDOTI</h2>
+        </div>
+        
+        <div class="nav-menu">
+            <div class="nav-item">
+                <a href="#" class="nav-link active" data-page="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link" data-page="playbook">
+                    <i class="fas fa-book"></i>
+                    <span>Playbook</span>
+                </a>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link" data-page="documentos">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Documentos</span>
+                </a>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link" data-page="formularios">
+                    <i class="fas fa-edit"></i>
+                    <span>Formulários</span>
+                </a>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link" data-page="estoques">
+                    <i class="fas fa-boxes"></i>
+                    <span>Estoques</span>
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#" class="nav-link" data-page="pastas">
+                    <i class="fas fa-folder"></i> <!-- Ícone de pasta -->
+                    <span>Pastas</span>
+                </a>
+            </div>            
+            <div class="nav-item">
+                <a href="#" class="nav-link" data-page="custos">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Custos</span>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <div class="header">
+            <h1 id="page-title">Dashboard</h1>
+            <div class="header-actions">
+                <div class="greeting">Bem-vindo, <strong>Ti</strong></div>
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle" style="font-size: 1.5rem; color: var(--primary);"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página Dashboard -->
+        <div id="dashboard" class="content-page active">
+            <div class="welcome-container">
+                <div class="welcome-content">
+                    <div class="time">
+                        <i class="fas fa-clock"></i>
+                        <span id="current-time"></span>
+                    </div>
+                    <h1>Bem-vindo ao <br><span style="color: var(--primary);">DashdoTI</span></h1>
+                    <p class="greeting" id="greeting-text">Sua plataforma de gestão completa está pronta para uso.</p>
+                </div>
+                <div class="welcome-graphic">
+                    <div class="logo">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards Dinâmicos -->
+            <div id="dynamic-cards" class="action-cards" style="margin-top: 4rem;"></div>
+
+            <!-- Próximos Compromissos -->
+            <div id="next-commitments" class="next-commitments" style="margin-top: 6rem; display: none;">
+                <h3>Próximos Compromissos do Time</h3>
+                <p>Daily às 11:00</p>
+            </div>
+        </div>
+
+        <!-- Página Playbook -->
+        <div id="playbook" class="content-page">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Playbook</h3>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Passo</th>
+                                <th>Descrição</th>
+                                <th>Status</th>
+                                <th>Atualizado em</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Playbook 1 – Redefinição de Senhas e MFA</td>
+                                <td>PDF</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1sgigTohGBw6wkGdNPHQHWFKtN_oUPxbpEW4LH4ioDYo/edit?tab=t.0', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Playbook 3 – Utilização de Equipamentos Fora do Estoque</td>
+                                <td>DOCX</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1pHGZKIhxoXSixhewEY9VIB15XOMPku49xVYsZKwww-U/edit?tab=t.0', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Playbook 4 – Empréstimo de Equipamentos</td>
+                                <td>DOCX</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1nLlK2VQXSfJjaJz69E5jMMdpEQpnEvE_wyOJFXpxn4o/edit?tab=t.0#heading=h.x7tbcce44rlu', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Playbook 5 – Onboarding de Novos Colaboradores</td>
+                                <td>DOCX</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1owZN8kwzrstsWUT7L0ABQDZ8UnLGWUZxuqyWf5_4p_g/edit?tab=t.0#heading=h.f5ub3v9phyo5', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Playbook 6 – Formatação de Equipamentos</td>
+                                <td>DOCX</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1vobNYK16U3FrDFQmZldohCnsaISf-M8Ijbe_gcO2kPs/edit?tab=t.0', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Playbook 7 – Mudanças de Infraestrutura</td>
+                                <td>DOCX</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1zS7zkzZXJp8osJYpXL3GpL2X0_0cyMHrkNSkb-BNJOI/edit?tab=t.0', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> Playbook 9 – Gestão de Tarefas Operacionais</td>
+                                <td>DOCX</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1Td36KWILKp5nEvvhnpk9nWr6FoTfEosGJ_P0dNlSwYc/edit?tab=t.0', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> Playbook - Time de TI | Entrega de Ativos</td>
+                                <td>DOCX</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1C5FJqpj4WkOaf3Po_8wW2Bt0RLwTz9VME8_fElmGxDA/edit?tab=t.0', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Playbook – Processo de Movimentação de Estoques</td>
+                                <td>DOCX</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1J85mB2LlGHhiwzLUkKccQU0RgIRRQp7ksLhtmxj6Xl0/edit?tab=t.jmnn1vw5yoq5#heading=h.eer303xwfhw9', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página Documentos -->
+        <div id="documentos" class="content-page">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Documentos</h3>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Tipo</th>
+                                <th>Status</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ANEXO I - POL-TI-001 Política de Segurança da Informação e Cibernética</td>
+                                <td>PDF</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://drive.google.com/file/d/1Q0wLxm_DQjY6xK8Yju9_u25NZoDtbuEb/view?usp=sharing', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>POL-TI-001 Política de Segurança da Informação e Cibernética GREENN v1.2</td>
+                                <td>PDF</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://drive.google.com/file/d/1Cn-SUO4fJgCvESuSrmtTlvg7o6ihb_DT/view?usp=sharing', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>TERMO DE RESPONSABILIDADE PELA GUARDA E USO DE EQUIPAMENTOS</td>
+                                <td>PDF</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/19U-B-GxGJnAq6DBPTQXrffwM7RRSZ90m/edit#heading=h.5dyfcywegn1p', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>TERMO DE DEVOLUÇÃO DE EQUIPAMENTOS</td>
+                                <td>PDF</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1gvaC4ct25rllbK-SPWW6Yq5AWuQ_LZ9R/edit', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Abrir
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página Formulários -->
+        <div id="formularios" class="content-page">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Formulários</h3>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Status</th>
+                                <th>Última Atualização</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Boletim de Entrega de Equipamentos</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSe3nC3zVvO27RIiNB8CLYZ-8f8MvLSEJsEsy3Xz9MD0zbaVew/viewform', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Acessar 
+                                    </button>
+                                </td>
+                            </tr>
+                            
+                        
+                                <td>Boletim de Devolução de Equipamentos</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScxci09kQVcyMVNeKKCfC1B2aAACl29Z8DxMkZw2SvnFm-LOQ/viewform', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Acessar
+                                    </button>
+                                </td>
+                            </tr>
+
+                        
+                                <td>Boletim de Equipamento Danificado</td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScce4VZD3dCTk-bptUP5EtprBiBf4z7IES21Z6ejwkQ52kHBA/viewform', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Acessar
+                                    </button>
+                                </td>
+                            </tr>
+
+                                <td>Boletim de Transferência de Equipamento
+                                </td>
+                                <td><span class="status-badge success">Ativo</span></td>
+                                <td>01/06/2025</td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdIYQkaTB8tLkEGDparMdnveig1-9TjsbcVgcjZ0pSwBKOFWw/viewform', '_blank')">
+                                        <i class="fas fa-file-pdf"></i> Acessar
+                                    </button>
+                                </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página Estoques -->
+        <div id="estoques" class="content-page">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Estoques</h3>
+                </div>
+                <div class="estoque-container">
+                    <!-- Tabela para Notebooks -->
+                    <div class="card-categoria">
+                        <h4>Notebooks</h4>
+                        <div class="table-responsive">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Dell</td>
+                                        <td>
+                                            <button class="btn btn-sm" onclick="window.open('https://docs.google.com/spreadsheets/d/1E2LAZM1P7niJAry68gCpLExJVmf0p_DfEC91alLFeHE/edit?gid=1425251221#gid=1425251221', '_blank')">
+                                                <i class="fas fa-file-pdf"></i> Detalhes
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>MacBook</td>
+                                        <td>
+                                            <button class="btn btn-sm" onclick="window.open('https://example.com/dell-xps-13', '_blank')">
+                                                <i class="fas fa-file-pdf"></i> Detalhes
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="estoque-container">
+                        <!-- Tabela para Notebooks -->
+                        <div class="card-categoria">
+                            <h4>Celulares</h4>
+                            <div class="table-responsive">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Celulares em Geral </td>
+                                            <td>
+                                                <button class="btn btn-sm" onclick="window.open('https://docs.google.com/spreadsheets/d/1E2LAZM1P7niJAry68gCpLExJVmf0p_DfEC91alLFeHE/edit?gid=1703239016#gid=1703239016', '_blank')">
+                                                    <i class="fas fa-file-pdf"></i> Detalhes
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Iphones</td>
+                                            <td>
+                                                <button class="btn btn-sm" onclick="window.open('https://example.com/dell-xps-13', '_blank')">
+                                                    <i class="fas fa-file-pdf"></i> Detalhes
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    <!-- Tabela para Periféricos -->
+                    <div class="card-categoria">
+                        <h4>Periféricos</h4>
+                        <div class="table-responsive">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Fones felitron</td>
+                                        <td>
+                                            <button class="btn btn-sm" onclick="window.open('https://docs.google.com/spreadsheets/d/1E2LAZM1P7niJAry68gCpLExJVmf0p_DfEC91alLFeHE/edit?gid=211023363#gid=211023363', '_blank')">
+                                                <i class="fas fa-file-pdf"></i> Detalhes
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mouses/Teclados </td>
+                                        <td>
+                                            <button class="btn btn-sm" onclick="window.open('https://docs.google.com/spreadsheets/d/1E2LAZM1P7niJAry68gCpLExJVmf0p_DfEC91alLFeHE/edit?gid=998518519#gid=998518519', '_blank')">
+                                                <i class="fas fa-file-pdf"></i> Detalhes
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Tabela para Monitores -->
+                    <div class="card-categoria">
+                        <h4>Desktops</h4>
+                        <div class="table-responsive">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Monitores</td>
+                                        <td>
+                                            <button class="btn btn-sm" onclick="window.open('https://example.com/monitor-dell', '_blank')">
+                                                <i class="fas fa-file-pdf"></i> Detalhes
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desktops</td>
+                                        <td>
+                                            <button class="btn btn-sm" onclick="window.open('https://example.com/monitor-lg-ultrawide', '_blank')">
+                                                <i class="fas fa-file-pdf"></i> Detalhes
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página Custos -->
+        <div id="custos" class="content-page">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Custos</h3>
+                    <div style="display: flex; gap: 0.75rem;">
+                        <select class="form-select" id="mesFilter">
+                            <option value="todos">Todos os Meses</option>
+                            <option value="janeiro-2024">Janeiro 2024</option>
+                            <option value="janeiro-2025" selected>Janeiro 2025</option>
+                        </select>
+                        <button class="btn btn-sm" id="filtrarBtn">
+                            <i class="fas fa-filter"></i>
+                            Filtrar
+                        </button>
+                        <button class="btn btn-sm">
+                            <i class="fas fa-file-export"></i>
+                            Exportar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tabelas por mês -->
+                <div class="table-responsive month-table" id="janeiro-2024-table" data-mes="janeiro-2024" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>Descrição</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DataDog Club</td>
+                                <td>R$ 1.200,00</td>
+                                <td>Monitoramento de clubes</td>
+                                <td>15/01/2024</td>
+                                <td>
+                                    <a href="/detalhes/datadog-club-jan24" class="btn btn-sm">
+                                        <i class="fas fa-search"></i>
+                                        Detalhes
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-responsive month-table" id="janeiro-2025-table" data-mes="janeiro-2025">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>Descrição</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DataDog Greenn</td>
+                                <td>R$ 1.500,00</td>
+                                <td>Monitoramento ambiental</td>
+                                <td>10/01/2025</td>
+                                <td>
+                                    <a href="https://docs.google.com/spreadsheets/d/16S9v3VwjtJ_A1ib3Aj10iWiS6x61YBeAveoo4fCUV8A/edit?gid=0#gid=0" class="btn btn-sm">
+                                        <i class="fas fa-search"></i>
+                                        Detalhes
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DataDog Gdigital</td>
+                                <td>R$ 1.800,00</td>
+                                <td>Monitoramento digital</td>
+                                <td>05/01/2025</td>
+                                <td>
+                                    <a href="/detalhes/datadog-gdigital-jan25" class="btn btn-sm">
+                                        <i class="fas fa-search"></i>
+                                        Detalhes
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Página Documentos -->
+     <div id="pastas" class="content-page">
+        <div class="card">
+            <div class="card-header">
+                <h3>Documentos</h3>
+                <button class="btn btn-sm">
+                    <i class="fas fa-upload"></i>
+                    Upload
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Boletim de devolução de Equipamentos</td>
+                            <td><span class="status-badge success">Ativo</span></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="window.open('https://drive.google.com/drive/folders/10XHQIMBUGeexTJZ5Sb6mO-_zMa0u0wzw?usp=drive_link', '_blank')">
+                                    <i class="fas fa-file-pdf"></i> Acessar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Boletim de entrega de Equipamentos</td>
+                            <td><span class="status-badge success">Ativo</span></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="window.open('https://drive.google.com/drive/folders/11z_76LWmmLLwvlcy4D_NMFNqlpcRfLfs', '_blank')">
+                                    <i class="fas fa-file-pdf"></i> Acessar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Boletim de equipamentos Danificado</td>
+                            <td><span class="status-badge success">Ativo</span></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="window.open('https://drive.google.com/drive/folders/11z_76LWmmLLwvlcy4D_NMFNqlpcRfLfs', '_blank')">
+                                    <i class="fas fa-file-pdf"></i> Acessar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Boletim de trasnferencia de Equipamentos</td>
+                            <td><span class="status-badge success">Ativo</span></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="window.open('https://docs.google.com/document/d/1gvaC4ct25rllbK-SPWW6Yq5AWuQ_LZ9R/edit', '_blank')">
+                                    <i class="fas fa-file-pdf"></i> Acessar
+                                </button>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

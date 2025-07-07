@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time de TI - Novidades</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        /* Cores */
+        :root {
+            --verde: #2ecc71;
+            --cinza-escuro: #2c3e50;
+            --cinza-claro: #ecf0f1;
+        }
+
+        /* Tela de Carregamento Minimalista */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .loading-title {
+            color: var(--cinza-escuro);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .loading-subtitle {
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(46, 204, 113, 0.2);
+            border-top-color: var(--verde);
+            border-radius: 50%;
+            margin: 1rem auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Página Principal */
+        .main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--cinza-escuro);
+        }
+
+        .logo span {
+            color: var(--verde);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--verde);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card-header {
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--cinza-escuro);
+        }
+
+        .card-body {
+            padding: 1.2rem;
+        }
+
+        .card-text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .card-date {
+            display: inline-block;
+            background: var(--cinza-claro);
+            color: #666;
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .card-footer {
+            padding: 0 1.2rem 1.2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--verde);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #27ae60;
+        }
+
+        footer {
+            background: var(--cinza-escuro);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tela de Carregamento -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <h1 class="loading-title">Time de TI</h1>
+            <p class="loading-subtitle">Carregando atualizações...</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Página Principal -->
+    <div class="main-content" id="mainContent">
+        <header>
+            <div class="logo">Time <span>de TI</span></div>
+        </header>
+
+        <main>
+            <div class="container">
+                <h1 class="page-title">Últimas Novidades</h1>
+                
+                <div class="cards-grid">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Nova Politica de Movimentação de Estoques</h2>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-date">09/05/2025</span>
+                            <p class="card-text">Essa novidade visa substituir processos anteriores, assegurando um registro mais consistente e controlado de todas as entradas, saídas e movimentações internas de estoque, além de casos de dano ou perda. A correta formalização através do Boletim é crucial para evitar erros e manter a integridade do estoque.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://docs.google.com/document/d/1J85mB2LlGHhiwzLUkKccQU0RgIRRQp7ksLhtmxj6Xl0/edit?tab=t.jmnn1vw5yoq5" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Nova Politica de Onboard</h2>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-date">09/05/2025</span>
+                            <p class="card-text">Essa transição representa uma modernização e centralização do fluxo de trabalho, visando otimizar a eficiência, fortalecer a segurança e garantir uma rastreabilidade completa de cada etapa do processo de onboarding no que tange à concessão de acessos.
+
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://docs.google.com/document/d/1bO51sR-kRdK--_9u03pPRImOPsccpG7HHV3uP4QihXk/edit?tab=t.0" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Automações de chamados</h2>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-date">Maio 2025</span>
+                            <p class="card-text">A automatização das notificações de status por e-mail, entregues em tempo real aos colaboradores, representa um salto qualitativo na transparência e eficiência do suporte. Essa funcionalidade proativa garante que os usuários estejam sempre atualizados sobre o progresso de suas solicitações, otimizando seu tempo e reduzindo a necessidade de acompanhamento manual, Essas implementações demonstram um compromisso do time com a otimização contínua dos processos de suporte, priorizando a comunicação clara, a eficiência operacional e a melhoria da experiência do usuário. </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn">🚀News </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Encerramento do Airtable </h2>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-date">Todo dia 20</span>
+                            <p class="card-text">Grande Novidade: ClickUp Unifica Todos os Processos!
+
+                                A partir de agora, o ClickUp se torna a nossa plataforma central! 🎉 Todos os processos estão unificados em um só lugar: desde o Onboarding de novos colaboradores, passando pela gestão de Chamados, até o controle de Estoques! 🚀
+                                
+                                Essa integração total no ClickUp traz mais eficiência, organização e transparência para o nosso dia a dia.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn">Inscrever-se</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 Time de TI | Contato: ti@empresa.com</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simula o carregamento
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const mainContent = document.getElementById('mainContent');
+            
+            loadingScreen.style.opacity = '0';
+            
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                mainContent.style.display = 'block';
+                
+                setTimeout(() => {
+                    mainContent.style.opacity = '1';
+                }, 50);
+            }, 300);
+        }, 1500);
+    </script>
+</body>
+</html>
