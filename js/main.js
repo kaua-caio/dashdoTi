@@ -191,8 +191,8 @@ function updateNextCommitments() {
     if (currentTime >= clickUpTimeStart && currentTime < clickUpTimeEnd) {
         nextCommitments.style.display = 'block';
         nextCommitments.innerHTML = `
-            <h3>Próximos Compromissos</h3>
-            <p>Marcar as horas no ClickUp</p>
+            <h3>Não Deixe de Registrar suas horas!</h3>
+            <p>Acesse agora o ClickUp e deixe tudo certo.</p>
             <button class="btn btn-sm" onclick="window.open('https://app.clickup.com/', '_blank')">
                 <i class="fas fa-clock"></i> Acessar ClickUp
             </button>
