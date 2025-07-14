@@ -447,26 +447,29 @@ tr:hover {
 /* Menu mobile */
 .menu-toggle {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
-  background: var(--primary);
+  bottom: 20px; /* distância da parte de baixo */
+  right: 20px;  /* distância da direita */
+  background-color: #007bff; /* azul, pode trocar */
   color: white;
   border: none;
-  padding: 0.75rem;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  font-size: 1.25rem;
-  z-index: 110;
+  border-radius: 50%; /* deixa o botão redondo */
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
   cursor: pointer;
-  display: none;
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .menu-toggle:hover {
-  background: var(--primary-dark);
-  transform: scale(1.1);
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
+
+.menu-toggle i {
+  pointer-events: none; /* para o ícone não interferir no clique */
+}
+
 
 .overlay {
   position: fixed;
@@ -632,23 +635,342 @@ tr:hover {
   .welcome-content {
       padding: 2rem;
   }
+
+  .table-responsive {
+      display: none; /* Oculta a tabela em telas menores */
+  }
+
+  .formularios-cards {
+      display: flex; /* Exibe os cards em telas menores */
+      flex-direction: column;
+      gap: 1rem; /* Espaçamento entre os cards */
+  }
+
+  .formulario-card {
+      background: #fff; /* Fundo do card */
+      border: 1px solid #ddd; /* Borda do card */
+      border-radius: 8px; /* Bordas arredondadas */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+      padding: 1rem; /* Espaçamento interno */
+  }
+
+  .formulario-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+  }
+
+  .formulario-card .status {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: var(--success); /* Cor do status */
+  }
+
+  .formulario-card .actions {
+      margin-top: 1rem;
+      text-align: right;
+  }
+
+  .documentos-cards,
+  .playbook-cards,
+  .estoques-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .documento-card,
+  .playbook-card,
+  .estoque-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+  }
+
+  .documento-card h4,
+  .playbook-card h4,
+  .estoque-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+  }
+
+  .documento-card .actions,
+  .playbook-card .actions,
+  .estoque-card .actions {
+      margin-top: 1rem;
+      text-align: right;
+  }
 }
 
-@media (max-width: 576px) {
-  .estoque-container {
-      grid-template-columns: 1fr;
+@media (min-width: 768px) {
+  .formularios-cards {
+      display: none; /* Oculta os cards em telas maiores */
   }
-  
-  .btn {
-      padding: 0.75rem 1rem;
-      font-size: 0.875rem;
+
+  .table-responsive {
+      display: block; /* Garante que a tabela seja exibida em telas maiores */
+  }
+
+  .documentos-cards,
+  .playbook-cards,
+  .estoques-cards {
+      display: none;
   }
 }
 
-/* Estilos existentes... */
+/* Ocultar os cards em telas maiores (desktop) */
+@media (min-width: 768px) {
+    .documentos-cards {
+        display: none; /* Oculta os cards em telas maiores */
+    }
 
-/* Estilos para o modal de temas */
-/* Estilos para o modal de temas */
+    .table-responsive {
+        display: block; /* Exibe a tabela em telas maiores */
+    }
+}
+
+/* Ocultar as tabelas em telas menores (mobile) */
+@media (max-width: 768px) {
+    .table-responsive {
+        display: none; /* Oculta a tabela em telas menores */
+    }
+
+    .documentos-cards {
+        display: flex; /* Exibe os cards em telas menores */
+        flex-direction: column;
+        gap: 1rem; /* Espaçamento entre os cards */
+    }
+
+    .documento-card {
+        background: #fff; /* Fundo do card */
+        border: 1px solid #ddd; /* Borda do card */
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        padding: 1rem; /* Espaçamento interno */
+    }
+
+    .documento-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .documento-card .status {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: var(--success); /* Cor do status */
+    }
+
+    .documento-card .actions {
+        margin-top: 1rem;
+        text-align: right;
+    }
+}
+
+/* Ocultar os cards em telas maiores (desktop) */
+@media (min-width: 768px) {
+    .playbook-cards {
+        display: none; /* Oculta os cards em telas maiores */
+    }
+
+    .table-responsive {
+        display: block; /* Exibe a tabela em telas maiores */
+    }
+}
+
+/* Ocultar as tabelas em telas menores (mobile) */
+@media (max-width: 768px) {
+    .table-responsive {
+        display: none; /* Oculta a tabela em telas menores */
+    }
+
+    .playbook-cards {
+        display: flex; /* Exibe os cards em telas menores */
+        flex-direction: column;
+        gap: 1rem; /* Espaçamento entre os cards */
+    }
+
+    .playbook-card {
+        background: #fff; /* Fundo do card */
+        border: 1px solid #ddd; /* Borda do card */
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        padding: 1rem; /* Espaçamento interno */
+    }
+
+    .playbook-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .playbook-card .status {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: var(--success); /* Cor do status */
+    }
+
+    .playbook-card .actions {
+        margin-top: 1rem;
+        text-align: right;
+    }
+}
+
+/* Ocultar os cards em telas maiores (desktop) */
+@media (min-width: 768px) {
+    .estoques-cards {
+        display: none; /* Oculta os cards em telas maiores */
+    }
+
+    .table-responsive {
+        display: block; /* Exibe a tabela em telas maiores */
+    }
+}
+
+/* Ocultar as tabelas em telas menores (mobile) */
+@media (max-width: 768px) {
+    .table-responsive {
+        display: none; /* Oculta a tabela em telas menores */
+    }
+
+    .estoques-cards {
+        display: flex; /* Exibe os cards em telas menores */
+        flex-direction: column;
+        gap: 1rem; /* Espaçamento entre os cards */
+    }
+
+    .estoque-card {
+        background: #fff; /* Fundo do card */
+        border: 1px solid #ddd; /* Borda do card */
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        padding: 1rem; /* Espaçamento interno */
+    }
+
+    .estoque-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .estoque-card .status {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: var(--success); /* Cor do status */
+    }
+
+    .estoque-card .status.warning {
+        color: var(--warning); /* Cor de status de aviso */
+    }
+
+    .estoque-card .actions {
+        margin-top: 1rem;
+        text-align: right;
+    }
+}
+
+/* Ocultar os cards em telas maiores (desktop) */
+@media (min-width: 768px) {
+    .pastas-cards {
+        display: none; /* Oculta os cards em telas maiores */
+    }
+
+    .table-responsive {
+        display: block; /* Exibe a tabela em telas maiores */
+    }
+}
+
+/* Ocultar as tabelas em telas menores (mobile) */
+@media (max-width: 768px) {
+    .table-responsive {
+        display: none; /* Oculta a tabela em telas menores */
+    }
+
+    .pastas-cards {
+        display: flex; /* Exibe os cards em telas menores */
+        flex-direction: column;
+        gap: 1rem; /* Espaçamento entre os cards */
+    }
+
+    .pasta-card {
+        background: #fff; /* Fundo do card */
+        border: 1px solid #ddd; /* Borda do card */
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        padding: 1rem; /* Espaçamento interno */
+    }
+
+    .pasta-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .pasta-card .status {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: var(--success); /* Cor do status */
+    }
+
+    .pasta-card .status.warning {
+        color: var(--warning); /* Cor de status de aviso */
+    }
+
+    .pasta-card .actions {
+        margin-top: 1rem;
+        text-align: right;
+    }
+}
+
+/* Ocultar os cards em telas maiores (desktop) */
+@media (min-width: 768px) {
+    .custos-cards {
+        display: none; /* Oculta os cards em telas maiores */
+    }
+
+    .table-responsive {
+        display: block; /* Exibe a tabela em telas maiores */
+    }
+}
+
+/* Ocultar as tabelas em telas menores (mobile) */
+@media (max-width: 768px) {
+    .table-responsive {
+        display: none; /* Oculta a tabela em telas menores */
+    }
+
+    .custos-cards {
+        display: flex; /* Exibe os cards em telas menores */
+        flex-direction: column;
+        gap: 1rem; /* Espaçamento entre os cards */
+    }
+
+    .custo-card {
+        background: #fff; /* Fundo do card */
+        border: 1px solid #ddd; /* Borda do card */
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        padding: 1rem; /* Espaçamento interno */
+    }
+
+    .custo-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .custo-card p {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--dark);
+    }
+
+    .custo-card .actions {
+        margin-top: 1rem;
+        text-align: right;
+    }
+}
 
 /* Estilos para o modal de temas */
 .modal {

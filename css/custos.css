@@ -116,3 +116,68 @@ tbody tr:hover {
 tbody td button.btn-sm {
     margin-right: 5px;
 }
+
+
+/* Estilo para os cards de formulários em mobile */
+.formularios-cards {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.formulario-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.formulario-card:hover {
+    transform: translateY(-2px);
+}
+
+.formulario-card h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.formulario-card .status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.status.success {
+    background-color: #e6f7e6;
+    color: #2e7d32;
+}
+
+.formulario-card .actions {
+    margin-top: 1rem;
+}
+
+/* Mostrar cards em mobile e esconder tabela */
+@media (max-width: 768px) {
+    #formularios .table-responsive {
+        display: none;
+    }
+    
+    .formularios-cards {
+        display: grid;
+    }
+}
+
+/* Mostrar tabela em desktop e esconder cards */
+@media (min-width: 769px) {
+    #formularios .table-responsive {
+        display: block;
+    }
+    
+    .formularios-cards {
+        display: none;
+    }
+}
